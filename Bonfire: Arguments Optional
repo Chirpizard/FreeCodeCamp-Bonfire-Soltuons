@@ -1,0 +1,55 @@
+function add() {
+
+    //when called, checks to see if param is a number
+    var checkNum = function (num) {
+        if (typeof num !== 'number'){
+            return undefined;
+        }else
+            return num;
+    };
+
+    //If more than 1 argument
+    if (arguments.length > 1) {
+        //Run checkNum on both arguments
+        var a = checkNum(arguments[0]);
+        var b = checkNum(arguments[1]);
+        
+        //If a or b is not a number/is undefined
+        if (a === undefined || b === undefined) {
+            return undefined;
+        } 
+        
+        //Otherwise return the sum of a and b
+        else {
+          return a + b;
+        }
+
+    //Otherwise if only 1 argument
+    } else {
+        //Take current argument
+        var c = arguments[0];
+        
+        //...Then checks to see if it is a number
+        if(checkNum(c)){
+            console.log('c defined as:', c);
+            
+            //return a new fucntion called add2
+            return function add2 (arg2) {
+                console.log('C =', c);
+                
+                //If c or arg2 is undefined
+                if (c === undefined || checkNum(arg2) === undefined) {
+                    return undefined;
+                }
+                
+                //So if c is a number
+                // ..and if arg2 is a number
+                // Then just add them together
+                else {
+                    console.log('Added to: ', arg2);
+                    return c + arg2;
+                }
+            };
+        }
+    }
+}
