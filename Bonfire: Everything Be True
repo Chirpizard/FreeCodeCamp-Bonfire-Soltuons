@@ -1,0 +1,19 @@
+function every(collection, pre) {
+  // Is everyone being true?
+  // Does each element in first argument have the second argument as a property
+  var status;
+  
+  for (var i in collection) {
+    //If (i)th element in collection has pre and if pre is truthy
+    if (collection[i].hasOwnProperty(pre) && collection[i][pre]) {
+      status = true;
+    }
+    else {
+      status = false;
+      break;
+    }
+  }
+  
+  console.log(status);
+  return status;
+}
